@@ -6,8 +6,55 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link
+      rel="icon"
+      type="image/png"
+      href="https://pruvitnow.com/wp-content/uploads/2016/09/favicon-32x32.png"
+      sizes="16x16"
+    />
+
+    <link rel="stylesheet" href="https://use.typekit.net/bsl5aws.css" />
+
+    <link
+      rel="stylesheet"
+      href="./assets/css/font-awesome/css/fontawesome-all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/bootstrap4.4.1/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 <body>
   <app-root></app-root>
+
+
+
+
+
+
+
+  <script
+      src="https://kit.fontawesome.com/c64fff7a9f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/jquery-3.4.1.slim.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/slick/slick.min.js"></script>
+    <script src="./js/bootstrap4.4.1/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script type="text/javascript">
+      //js for tooltip
+      $('[data-toggle="tooltip"]')
+        .tooltip()
+        .on("shown.bs.tooltip", function (e) {
+          if ($(this).hasClass("large-tooltip")) {
+            $("body")
+              .find('.tooltip[role="tooltip"].show')
+              .addClass("large-tooltip");
+          }
+    });
+</script>
 </body>
 </html>
