@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -10,11 +11,14 @@ export class ProductCardComponent {
 
   @Input() item:any;
 
-  constructor(private api: ApiService){
+  constructor(private api: ApiService, private cart: CartService){
 
   }
 
-  saveData(){
+  addToCart(item: any){
+
+    this.cart.addToCart(item);
+    console.log(item);
 
     let data = [{
       id: this.api.getProduct(),
@@ -26,7 +30,7 @@ export class ProductCardComponent {
       // totalQuantity: 5
     }];
 
-    localStorage.setItem('cartData', JSON.stringify(data));
+    localStorage.setItem('cartData', JSON.stringify(item.id,item.quantity));
     console.log(localStorage.getItem('cartData'))
 
   }

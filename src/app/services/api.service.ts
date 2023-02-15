@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  //new BehaviorSubject<string>('');
-  private cartData = new BehaviorSubject<string>('');
+
 
   constructor(private http: HttpClient) {
 
@@ -19,11 +18,5 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  setCartData(data:string){
-    this.cartData.next(data);
-  }
 
-  getCartData(){
-    return this.cartData;
-  }
 }
