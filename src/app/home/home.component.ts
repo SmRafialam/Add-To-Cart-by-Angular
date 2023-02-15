@@ -10,7 +10,7 @@ import { ApiService } from '../services/api.service';
 export class HomeComponent implements OnInit{
 
   public productLists:any = "";
-  public cart:any = "";
+  //public cart:any = "";
   subscription!: Subscription;
 
 
@@ -21,11 +21,11 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this.subscription = this.api.getProduct().subscribe((data:any)=>{
       this.productLists = data.list;
-      // console.log(data.list);
-      this.cart = data.list.filter((res:any)=>{
-        this.cart = res;
-        console.log(res);
-      })
+      console.log(this.productLists);
+    //  data.list.filter((res:any)=>{
+    //     this.productLists = res;
+    //     //console.log(res);
+    //   })
     })
   }
 

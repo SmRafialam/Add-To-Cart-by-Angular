@@ -1,0 +1,26 @@
+<div class="sk-main__product text-center color-light-white-bg">
+  <figure class="sk-main__product-img">
+    <img
+      alt="Product-1"
+      class="img-fluid pointer"
+      src="{{item.post_thumb_url}}"
+    />
+  </figure>
+  <div class="sk-main__product-details">
+    <h4 class="color-black sk-main__product-title">
+      {{item.post_title}}
+    </h4>
+    <p class="p-small color-gray sk-main__product-from">
+      {{item.post_price}}
+    </p>
+  </div>
+  <div class="sk-main__product-btn">
+    <button
+      data-toggle="modal"
+      data-target="#exampleModalCenter"
+      class="button button-primary buy-now"
+    >
+      Buy Now
+    </button>
+  </div>
+</div>

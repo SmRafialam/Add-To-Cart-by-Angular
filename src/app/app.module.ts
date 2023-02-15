@@ -8,6 +8,7 @@ import { ProductsCardComponent } from './products-card/products-card.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { ProductCardComponent } from './home/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FooterComponent,
     ProductsCardComponent,
-    HomeComponent
+    HomeComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
