@@ -22,6 +22,11 @@ export class HomeComponent implements OnInit{
     this.subscription = this.api.getProduct().subscribe((data:any)=>{
       this.productLists = data.list;
       console.log(this.productLists);
+
+
+      this.productLists.forEach((a:any) => {
+        Object.assign(a,{quantity:1 , total:a.price});
+      });
     //  data.list.filter((res:any)=>{
     //     this.productLists = res;
     //     //console.log(res);

@@ -20,17 +20,13 @@ export class ProductCardComponent {
     this.cart.addToCart(item);
     console.log(item);
 
-    let data = [{
-      id: this.api.getProduct(),
+    let data = {
+      'id': item.ID,
+      'quantity': item.quantity
+    };
+    console.log(data);
 
-      // title: 'keto',
-      // Image: './assets/images/img1',
-      // price: 20,
-      // quantity: 3,
-      // totalQuantity: 5
-    }];
-
-    localStorage.setItem('cartData', JSON.stringify(item.id,item.quantity));
+    localStorage.setItem('cartData', JSON.stringify(data));
     console.log(localStorage.getItem('cartData'))
 
   }
