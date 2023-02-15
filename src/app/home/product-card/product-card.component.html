@@ -11,7 +11,7 @@
       {{item.post_title}}
     </h4>
     <p class="p-small color-gray sk-main__product-from">
-      {{item.post_price}}
+      {{item.price}}
     </p>
   </div>
   <div class="sk-main__product-btn">
@@ -19,6 +19,7 @@
       data-toggle="modal"
       data-target="#exampleModalCenter"
       class="button button-primary buy-now"
+      (click)="saveData()"
     >
       Buy Now
     </button>
