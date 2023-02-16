@@ -58,12 +58,14 @@
           <li class="nav-item">
             <a
               class="nav-link sk-header__nav-link cart-has-product"
-              href="#"
+              routerLink="/cart"
               ><img
                 src="./assets/images/cart.png"
                 class="img-fluid retina-img sk-header__icon"
                 alt="cart"
-            /></a>
+            />
+            <div style="font-size: 10px;" class="badge bg-danger"> {{totalItem}} </div>
+          </a>
           </li>
         </ul>
       </div>
@@ -102,12 +104,13 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link p-2 cart-has-product" href="#"
+            <a class="nav-link p-2 cart-has-product"
               ><img
                 src="./assets/images/cart.png"
                 class="img-fluid sk-header__icon"
                 alt="cart"
-            /></a>
+            />
+          </a>
           </li>
         </ul>
       </div>

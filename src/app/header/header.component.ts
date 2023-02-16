@@ -1,10 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
+  @Input() cart:any;
+
+  totalItem: number = 0;
+
+
+  openCart(){
+    alert("ok");
+  }
+
+  constructor(private api: ApiService,private cartService: CartService){
+
+  }
+
+  ngOnInit(): void {
+    this.cartService.getCartData().subscribe((res)=>{
+      this.totalItem = res.length;
+    })
+  }
 }

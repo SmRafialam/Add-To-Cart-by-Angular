@@ -7,7 +7,7 @@ import { ProductCardComponent } from './home/product-card/product-card.component
 const routes: Routes = [
   // {path:'', redirectTo: 'products', pathMatch: 'full'},
   // {path:'products', component: ProductCardComponent},
-  // {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({

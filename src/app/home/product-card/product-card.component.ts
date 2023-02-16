@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -7,7 +7,9 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit{
+
+  quantity:number=1
 
   @Input() item:any;
 
@@ -15,20 +17,42 @@ export class ProductCardComponent {
 
   }
 
-  addToCart(item: any){
+  ngOnInit(): void {
+    console.log(this.item)
+  }
 
+  addToCart(item: any){
     this.cart.addToCart(item);
     console.log(item);
 
     let data = {
       'id': item.ID,
-      'quantity': item.quantity
+      'quantity': this.quantity
     };
     console.log(data);
 
     localStorage.setItem('cartData', JSON.stringify(data));
     console.log(localStorage.getItem('cartData'))
+  }
 
+  onSelectProduct(item:any){
+    // this.cart.addToCart(item);
+    console.log(item);
+  }
+
+  i=1;
+  plus(){
+    if(this.i != 20){
+      this.i ++;
+      this.quantity = this.i;
+    }
+  }
+
+  minus(){
+    // alert("ok");
+    if(this.i != 1)
+    this.i --;
+    this.quantity = this.i;
   }
 
 }

@@ -17,9 +17,9 @@
   <div class="sk-main__product-btn">
     <button
       data-toggle="modal"
-      data-target="#exampleModalCenter"
+      [attr.data-target]="'#productModal' + item.ID"
       class="button button-primary buy-now"
-
+      (click)="onSelectProduct(item)"
     >
       Buy Now
     </button>
@@ -29,7 +29,7 @@
 
     <!-- Modal -->
     <div
-      id="exampleModalCenter"
+      id="productModal{{item.ID}}"
       tabindex="-1"
       role="dialog"
       class="modal fade show"
@@ -68,10 +68,7 @@
                           "
                         >
                           <p>
-                            KETO//OS NAT® is a ketone supplement that produces
-                            the most bioavailable ketone salts through a
-                            naturally fermented process. Now that’s
-                            Nutritionally Advanced Technology™.
+                            {{item.mv_meta_description}}
                           </p>
                           <a
                             data-dismiss="modal"
@@ -201,13 +198,13 @@
                             "
                           >
                             <button class="pack-qty-btn">
-                              <i class="fas fa-minus"></i>
+                              <i class="fas fa-minus" (click)="minus()"></i>
                             </button>
-                            <p class="text-center qty-width p-small font-bold">
-                              1
+                            <p class="text-center qty-width p-small font-bold" >
+                              {{quantity}}
                             </p>
                             <button class="pack-qty-btn">
-                              <i class="fas fa-plus"></i>
+                              <i class="fas fa-plus" (click)="plus()"></i>
                             </button>
                           </div>
                           <div class="sk-product__amount-cost">
