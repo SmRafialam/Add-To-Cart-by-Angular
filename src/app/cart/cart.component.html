@@ -1,1 +1,39 @@
-<p>cart works!</p>
+<main class="sk-main" style="margin-top: 111px;">
+  <section class="sk-main__top sk-cart-landing">
+    <article class="container">
+
+      <div class="cart-page-wraper color-white-bg">
+        <figure class="sk-cart__header d-flex justify-content-between">
+          <h4 class="color-black sk-cart__header-title">Your Cart</h4>
+        </figure>
+        <figure>
+          <div class="sk-cart__subtitle sk-cart__padd">
+            <h5 class="sk-cart__subtitle--text color-gray">Today's Order</h5>
+          </div>
+          <figure class="sk-cart__item-box sk-cart__padd position-relative">
+            <button class="sk-cart__item-close-btn position-absolute"><i aria-hidden="true" class="fas fa-times"></i></button>
+            <div class="sk-cart__item-content d-flex">
+              <div class="sk-cart__item-img"><img alt="cart-item-img" class="img-fluid cart-item-img" src="https://api.shopketo.com/wp-content/uploads/2023/01/good_bundle_4_37334.png"></div>
+              <div class="sk-cart__item-details flex-fill">
+                <p class="p-small font-bold color-black sk-cart__item-title">Good Bundle</p>
+                <p class="disclaimer-reg color-gray">Good Bundle<br></p>
+                <div class="sk-cart__item-modify d-flex justify-content-between">
+                  <div class="sk-cart__select-number d-flex align-items-center justify-content-between">
+                    <button class="sk-cart__plus-minus color-white color-brand-bg" (click)="minus()"><i class="fas fa-minus"></i></button>
+                    <p class="p-small font-bold color-black">{{quantity}}</p>
+                    <button class="sk-cart__plus-minus color-white plus-icon color-brand-bg" (click)="plus()"><i class="fas fa-plus"></i></button>
+                  </div>
+                  <h4 class="color-black color-green"><del class="color-black font-reg">$280</del> $209</h4>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </figure>
+        <figure class="sk-cart__padd sk-cart__chackout-btn-wrap">
+          <button class="button button-large sk-cart__chackout-btn position-relative">Checkout</button>
+        </figure>
+      </div>
+
+    </article>
+  </section>
+</main>

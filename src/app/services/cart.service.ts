@@ -23,13 +23,14 @@ export class CartService {
   addToCart(product:any){
     this.cartItemList.push(product);
     this.cartData.next(this.cartItemList);
-    // this.getTotalPrice();
+    this.getTotalPrice();
+    console.log(this.cartItemList);
   }
 
-  // getTotalPrice(){
-  //   let grandTotal = 0;
-  //   this.cartItemList.map((a:any)=>{
-  //     grandTotal += a.total;
-  //   })
-  // }
+  getTotalPrice(){
+    let grandTotal = 0;
+    this.cartItemList.map((a:any)=>{
+      grandTotal += a.total;
+    })
+  }
 }
