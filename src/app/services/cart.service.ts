@@ -8,6 +8,7 @@ export class CartService {
 
   public cartItemList: any[] = [];
   private cartData = new BehaviorSubject<any>([]);
+  // defaultPrice: number = 100;
 
   constructor() { }
 
@@ -16,8 +17,8 @@ export class CartService {
     this.cartData.next(product);
   }
 
-  getCartData(){
-    return this.cartData.asObservable();
+  getCartData$(){
+    return this.cartData;
   }
 
   addToCart(product:any){
@@ -27,10 +28,11 @@ export class CartService {
     console.log(this.cartItemList);
   }
 
-  getTotalPrice(){
+  getTotalPrice():any{
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
       grandTotal += a.total;
     })
+    return grandTotal;
   }
 }

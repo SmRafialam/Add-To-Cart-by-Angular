@@ -1,8 +1,7 @@
 <main class="sk-main" style="margin-top: 111px;">
   <section class="sk-main__top sk-cart-landing">
     <article class="container">
-
-      <div class="cart-page-wraper color-white-bg">
+      <div class="cart-page-wraper color-white-bg"  *ngFor="let item of cartLists" >
         <figure class="sk-cart__header d-flex justify-content-between">
           <h4 class="color-black sk-cart__header-title">Your Cart</h4>
         </figure>
@@ -13,9 +12,9 @@
           <figure class="sk-cart__item-box sk-cart__padd position-relative">
             <button class="sk-cart__item-close-btn position-absolute"><i aria-hidden="true" class="fas fa-times"></i></button>
             <div class="sk-cart__item-content d-flex">
-              <div class="sk-cart__item-img"><img alt="cart-item-img" class="img-fluid cart-item-img" src="https://api.shopketo.com/wp-content/uploads/2023/01/good_bundle_4_37334.png"></div>
+              <div class="sk-cart__item-img"><img alt="cart-item-img" class="img-fluid cart-item-img" src="{{item.post_thumb_url}}"></div>
               <div class="sk-cart__item-details flex-fill">
-                <p class="p-small font-bold color-black sk-cart__item-title">Good Bundle</p>
+                <p class="p-small font-bold color-black sk-cart__item-title">{{item.post_title}}</p>
                 <p class="disclaimer-reg color-gray">Good Bundle<br></p>
                 <div class="sk-cart__item-modify d-flex justify-content-between">
                   <div class="sk-cart__select-number d-flex align-items-center justify-content-between">
@@ -23,7 +22,7 @@
                     <p class="p-small font-bold color-black">{{quantity}}</p>
                     <button class="sk-cart__plus-minus color-white plus-icon color-brand-bg" (click)="plus()"><i class="fas fa-plus"></i></button>
                   </div>
-                  <h4 class="color-black color-green"><del class="color-black font-reg">$280</del> $209</h4>
+                  <h4 class="color-black color-green"><del class="color-black font-reg">$280</del> {{totalPrice|currency}}</h4>
                 </div>
               </div>
             </div>

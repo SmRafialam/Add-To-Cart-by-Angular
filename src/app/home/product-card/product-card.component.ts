@@ -9,9 +9,10 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductCardComponent implements OnInit{
 
-  quantity:number=1
+  quantity:number=1;
+  defaultPrice:number=100;
 
-  @Input() item:any;
+  @Input() item!:any;
 
   constructor(private api: ApiService, private cart: CartService){
 
@@ -27,7 +28,8 @@ export class ProductCardComponent implements OnInit{
 
     let data = {
       'id': item.ID,
-      'quantity': this.quantity
+      'quantity': this.quantity,
+      'price':this.defaultPrice
     };
     console.log(data);
 
