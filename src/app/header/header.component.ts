@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { CartService } from '../services/cart.service';
 
@@ -18,7 +19,10 @@ export class HeaderComponent implements OnInit{
     alert("ok");
   }
 
-  constructor(private api: ApiService,private cartService: CartService){
+  constructor(
+    private api: ApiService,
+    private cartService: CartService
+  ){
 
   }
 
@@ -27,4 +31,5 @@ export class HeaderComponent implements OnInit{
       this.totalItem = res.length;
     })
   }
+
 }

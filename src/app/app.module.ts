@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProductsCardComponent } from './products-card/products-card.component';
 import { ApiService } from './services/api.service';
 import { CartService } from './services/cart.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +16,6 @@ import { CartComponent } from './cart/cart.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProductsCardComponent,
     HomeComponent,
     ProductCardComponent,
     CartComponent

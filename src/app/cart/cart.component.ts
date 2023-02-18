@@ -24,9 +24,10 @@ export class CartComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.api.getProduct().subscribe((data:any)=>{
-      this.productLists = data.list;
+    // this.api.getProduct().subscribe((data:any)=>{
+    //   this.productLists = data.list;
       //console.log(this.productLists);
+
       // this.grandTotal = this.cartService.getTotalPrice();
       // console.log(this.grandTotal);
       // this.productLists.forEach((value:any,index:any)=>{
@@ -42,11 +43,11 @@ export class CartComponent implements OnInit{
       //   console.log(a);
       //   //Object.assign(a,{quantity:this.quantity , total:a.price});
       // });
-    });
+    // });
 
     this.cartService.getCartData$().subscribe((res)=>{
-      let totalPrice = 0;
       this.cartLists = res;
+
       // this.totalPrice = this.cartService.getTotalPrice();
       // totalPrice += res * (this.priceDefault) + res * (this.quantity);
       // totalPrice += this.priceDefault * this.quantity;

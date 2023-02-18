@@ -1,15 +1,4 @@
 <header class="blog-header">
-  <!-- header offer section  -->
-  <div class="color-black-bg text-center">
-    <div class="container-fluid sk-header__offer">
-      <a href="#" class="sk-header__offer--link disclaimer-reg"
-        >💸 Save 22% on Ketones and Reboot Systems
-        <span class="font-bold br-mobile"
-          >Offer ends in 12d 4h 10m 53s</span
-        ></a
-      >
-    </div>
-  </div>
 
   <!-- header navbar section  -->
   <nav class="sk-header__navbar border-bottom-1 sk-header__nav-desktop">
@@ -24,8 +13,7 @@
       >
         <a
           class="navbar-brand sk-header__logo-box"
-          href="/index.html"
-          aria-label="Bootstrap"
+          routerLink="products">
         >
           <img
             src="./assets/images/pruvitnow-logo-d.png"
@@ -47,7 +35,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link sk-header__nav-link" href="#"
+            <a class="nav-link sk-header__nav-link"
               ><img
                 src="./assets/images/user.png"
                 class="img-fluid retina-img sk-header__icon"
@@ -58,7 +46,7 @@
           <li class="nav-item">
             <a
               class="nav-link sk-header__nav-link cart-has-product"
-              routerLink="/cart"
+              routerLink="./cart"
               ><img
                 src="./assets/images/cart.png"
                 class="img-fluid retina-img sk-header__icon"

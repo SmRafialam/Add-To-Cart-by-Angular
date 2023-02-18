@@ -1,7 +1,7 @@
 <main class="sk-main" style="margin-top: 111px;">
   <section class="sk-main__top sk-cart-landing">
     <article class="container">
-      <div class="cart-page-wraper color-white-bg"  *ngFor="let item of cartLists" >
+      <div class="cart-page-wraper color-white-bg" >
         <figure class="sk-cart__header d-flex justify-content-between">
           <h4 class="color-black sk-cart__header-title">Your Cart</h4>
         </figure>
@@ -9,7 +9,7 @@
           <div class="sk-cart__subtitle sk-cart__padd">
             <h5 class="sk-cart__subtitle--text color-gray">Today's Order</h5>
           </div>
-          <figure class="sk-cart__item-box sk-cart__padd position-relative">
+          <figure class="sk-cart__item-box sk-cart__padd position-relative" *ngFor="let item of cartLists">
             <button class="sk-cart__item-close-btn position-absolute"><i aria-hidden="true" class="fas fa-times"></i></button>
             <div class="sk-cart__item-content d-flex">
               <div class="sk-cart__item-img"><img alt="cart-item-img" class="img-fluid cart-item-img" src="{{item.post_thumb_url}}"></div>
