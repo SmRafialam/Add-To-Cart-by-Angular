@@ -15,8 +15,10 @@ export class CartComponent implements OnInit{
   totalPrice: number = 0
   priceDefault:number=100;
   public productLists:any = [];
-  public cartLists: any;
+  public cartLists: any = [];
   public pricelists:any;
+  localResult : any;
+  items = [];
 
   constructor(private api:ApiService ,private cartService: CartService){
 
@@ -48,14 +50,29 @@ export class CartComponent implements OnInit{
     this.cartService.getCartData$().subscribe((res)=>{
       this.cartLists = res;
 
+
+      // this.item = this.cartService.getCartData$();
+      console.log(this.cartLists);
+      // this.cartService.cartItemList = res;
+
       // this.totalPrice = this.cartService.getTotalPrice();
       // totalPrice += res * (this.priceDefault) + res * (this.quantity);
       // totalPrice += this.priceDefault * this.quantity;
-      // this.pricelists = totalPrice;
+      // this.pricelists = totalPrice
+
     })
+
+
+
+    // this.cartService.addToCart(this.cartLists);
+    // console.log(this.cartLists);
+
+    // console.log(this.productLists);
+    // this.productLists.push(this.cartService.addToCart(this.productLists));
 
     //this.totalPrice += this.priceDefault * this.quantity;
     // this.pricelists = totalPrice;
+
   }
 
   i=1;
@@ -77,5 +94,13 @@ export class CartComponent implements OnInit{
     console.log(this.quantity,this.totalPrice);
 
   }
+
+  setStyle(){
+    const id = localStorage.getItem('id');
+    const currentQuantity = localStorage.getItem('quantity');
+    const currentPrice = localStorage.getItem('price');
+  }
+
+
 
 }

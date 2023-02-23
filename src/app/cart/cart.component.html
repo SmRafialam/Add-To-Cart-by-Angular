@@ -12,17 +12,17 @@
           <figure class="sk-cart__item-box sk-cart__padd position-relative" *ngFor="let item of cartLists">
             <button class="sk-cart__item-close-btn position-absolute"><i aria-hidden="true" class="fas fa-times"></i></button>
             <div class="sk-cart__item-content d-flex">
-              <div class="sk-cart__item-img"><img alt="cart-item-img" class="img-fluid cart-item-img" src="{{item.post_thumb_url}}"></div>
+              <div class="sk-cart__item-img"><img alt="cart-item-img" class="img-fluid cart-item-img" src="{{item.image}}"></div>
               <div class="sk-cart__item-details flex-fill">
-                <p class="p-small font-bold color-black sk-cart__item-title">{{item.post_title}}</p>
+                <p class="p-small font-bold color-black sk-cart__item-title">{{item.title}}</p>
                 <p class="disclaimer-reg color-gray">Good Bundle<br></p>
                 <div class="sk-cart__item-modify d-flex justify-content-between">
                   <div class="sk-cart__select-number d-flex align-items-center justify-content-between">
                     <button class="sk-cart__plus-minus color-white color-brand-bg" (click)="minus()"><i class="fas fa-minus"></i></button>
-                    <p class="p-small font-bold color-black">{{quantity}}</p>
+                    <p class="p-small font-bold color-black">{{item.quantity}}</p>
                     <button class="sk-cart__plus-minus color-white plus-icon color-brand-bg" (click)="plus()"><i class="fas fa-plus"></i></button>
                   </div>
-                  <h4 class="color-black color-green"><del class="color-black font-reg">$280</del> {{totalPrice|currency}}</h4>
+                  <h4 class="color-black color-green"><del class="color-black font-reg">$280</del> {{item.price|currency}}</h4>
                 </div>
               </div>
             </div>

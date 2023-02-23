@@ -11,6 +11,8 @@ export class ProductCardComponent implements OnInit{
 
   quantity:number=1;
   defaultPrice:number=100;
+  info: number[] = [];
+  totalPrice: number = 0;
 
   @Input() item!:any;
 
@@ -19,22 +21,32 @@ export class ProductCardComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    console.log(this.item)
+    //console.log(this.item)
+
+
+    // this.cart.getCartData$().subscribe((res)=>{
+    //   this.cart.setCartData(res);
+    // })
   }
 
-  addToCart(item: any){
-    this.cart.addToCart(item);
-    console.log(item);
+  saveInCart(item: any){
 
-    let data = {
+    // this.cart.addToCart(item);
+    // console.log(item);
+
+    let cartProductData = {
       'id': item.ID,
+      'title': item.post_title,
+      'image':item.post_thumb_url,
       'quantity': this.quantity,
-      'price':this.defaultPrice
+      'price':this.defaultPrice * this.quantity
     };
-    console.log(data);
+    //console.log(data);
 
-    localStorage.setItem('cartData', JSON.stringify(data));
-    console.log(localStorage.getItem('cartData'))
+    // localStorage.setItem('cartData', JSON.stringify(cartProductData));
+    // console.log(localStorage.getItem('cartData'))
+
+    this.cart.addToCart(cartProductData);
   }
 
   onSelectProduct(item:any){
@@ -47,6 +59,8 @@ export class ProductCardComponent implements OnInit{
     if(this.i != 20){
       this.i ++;
       this.quantity = this.i;
+      this.totalPrice +=  this.defaultPrice * this.quantity;
+      console.log(this.quantity,this.totalPrice);
     }
   }
 
@@ -55,6 +69,8 @@ export class ProductCardComponent implements OnInit{
     if(this.i != 1)
     this.i --;
     this.quantity = this.i;
+    this.totalPrice -= this.defaultPrice * this.quantity;
+    console.log(this.quantity,this.totalPrice);
   }
 
 }

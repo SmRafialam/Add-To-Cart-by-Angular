@@ -10,14 +10,9 @@ import { CartService } from '../services/cart.service';
 })
 export class HeaderComponent implements OnInit{
 
-  @Input() cart:any;
 
   totalItem: number = 0;
 
-
-  openCart(){
-    alert("ok");
-  }
 
   constructor(
     private api: ApiService,

@@ -208,7 +208,7 @@
                             </button>
                           </div>
                           <div class="sk-product__amount-cost">
-                            <h4>$130</h4>
+                            <h4>{{defaultPrice * quantity | currency}}</h4>
                           </div>
                         </figure>
 
@@ -219,7 +219,7 @@
                             full-width
                             add-to-cart-icon
                           "
-                          (click)="addToCart(item)"
+                          (click)="saveInCart(item)"
                         >
                           Add to cart
                         </button>
