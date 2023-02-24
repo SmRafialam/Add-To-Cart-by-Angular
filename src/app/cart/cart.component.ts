@@ -16,64 +16,35 @@ export class CartComponent implements OnInit{
   priceDefault:number=100;
   public productLists:any = [];
   public cartLists: any = [];
-  public pricelists:any;
-  localResult : any;
-  items = [];
+
 
   constructor(private api:ApiService ,private cartService: CartService){
 
   }
 
   ngOnInit(): void {
-
-    // this.api.getProduct().subscribe((data:any)=>{
-    //   this.productLists = data.list;
-      //console.log(this.productLists);
-
-      // this.grandTotal = this.cartService.getTotalPrice();
-      // console.log(this.grandTotal);
-      // this.productLists.forEach((value:any,index:any)=>{
-      // // console.log(value.mvp_variations);
-      //   // value.mvp_variations.forEach((val2:any)=>{
-      //   //   console.log(val2);
-      //   // })
-      // })
-
-      // this.grandTotal = this.cartService.getTotalPrice();
-      // console.log(this.grandTotal);
-      // this.productLists.forEach((a:any) => {
-      //   console.log(a);
-      //   //Object.assign(a,{quantity:this.quantity , total:a.price});
-      // });
-    // });
-
-    this.cartService.getCartData$().subscribe((res)=>{
+    //this.getCartItems();
+    this.cartService.getCartData$().subscribe({
+    next: (res) => {
       this.cartLists = res;
-
-
-      // this.item = this.cartService.getCartData$();
       console.log(this.cartLists);
-      // this.cartService.cartItemList = res;
-
-      // this.totalPrice = this.cartService.getTotalPrice();
-      // totalPrice += res * (this.priceDefault) + res * (this.quantity);
-      // totalPrice += this.priceDefault * this.quantity;
-      // this.pricelists = totalPrice
-
-    })
-
-
-
-    // this.cartService.addToCart(this.cartLists);
-    // console.log(this.cartLists);
-
-    // console.log(this.productLists);
-    // this.productLists.push(this.cartService.addToCart(this.productLists));
-
-    //this.totalPrice += this.priceDefault * this.quantity;
-    // this.pricelists = totalPrice;
-
+    },
+    error:(err) => {
+      console.log(err);
+    },
+    complete:() => {
+      console.log("Done!");
+    }
+  });
+    //this.getCartItems();
   }
+
+  // getCartItems() {
+  //   const localCartData = localStorage.getItem('cartData');
+  //   if(localCartData !== null) {
+  //     this.cartService.setCartData(JSON.parse(localCartData));
+  //   }
+  // }
 
   i=1;
   plus(){

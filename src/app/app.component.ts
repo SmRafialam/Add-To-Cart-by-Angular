@@ -13,20 +13,18 @@ export class AppComponent implements OnInit{
   title = 'add-to-cart';
   itemInCart!:number;
   //cartItemList:any
-  constructor(private api: ApiService, private http: HttpClient,private cart: CartService){
+  constructor(private api: ApiService, private http: HttpClient,private cartService: CartService){
 
   }
 
   ngOnInit(): void {
     console.log("app loaded.....");
-    // this.http.get('https://shopketo.marketvision.com/wp-json/wp/pruvitnow/products/lang');
-
     this.getApiProducts();
 
+    //this.cart.getCartData();
+    //this.cart.addToCart("");
 
-    // this.cart.addToCart("");
-    // this.getCartItems();
-
+    this.getCartItems();
   }
 
   getApiProducts(){
@@ -35,12 +33,12 @@ export class AppComponent implements OnInit{
     });
   }
 
-  // getCartItems(){
-  //     this.cart.getCartData$().subscribe((data:any)=>{
-  //       this.cart.setCartData(data);
-  //     });
-  //   }
+  getCartItems() {
+    const localCartData = localStorage.getItem('cartData');
+    if(localCartData !== null) {
+      this.cartService.setCartData(JSON.parse(localCartData));
+    }
   }
 
-
+}
 

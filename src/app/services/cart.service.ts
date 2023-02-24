@@ -8,7 +8,6 @@ export class CartService {
 
   cartItemList: any[] = [];
   private cartData = new BehaviorSubject<any>([]);
-  //defaultPrice: number = 100;
   cart:any;
 
   constructor() {
@@ -33,28 +32,11 @@ export class CartService {
 
 
     localStorage.setItem('cartData', JSON.stringify(this.cartItemList));
-    let cart =  this.getCartData();
+    let cart = localStorage.getItem(JSON.parse('cartData'));
+
     console.log(cart);
-
-    // const ls =  localStorage.getItem(JSON.parse('cartData'));
-    // console.log(ls);
-    // let exist:any;
-
-    // if(exist){
-    //   exist.qty++;
-    //   localStorage.setItem('cartData', JSON.stringify(ls));
-    // }else{
-    //   if(ls){
-    //     const newData = [...ls,product];
-    //     localStorage.setItem('cart', JSON.stringify(newData));
-    //     this.cartData.next(localStorage.getItem(JSON.parse('cart')));
-    //   }
-    // }
   }
 
-  getCartData(){
-    localStorage.getItem(JSON.parse('cartData'));
-  }
 
   getTotalPrice():any{
     let grandTotal = 0;
